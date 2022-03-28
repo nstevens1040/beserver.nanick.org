@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="lib\Execute.HttpRequest.Core.dll" />
+    <None Remove="lib\HtmlAgilityPack.dll" />
+    <None Remove="lib\MimeKit.dll" />
+    <None Remove="lib\Newtonsoft.Json.dll" />
+    <None Remove="lib\System.Data.SQLite.dll" />
+    <None Remove="lib\System.Security.Permissions.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="lib\Execute.HttpRequest.Core.dll" />
+    <EmbeddedResource Include="lib\HtmlAgilityPack.dll" />
+    <EmbeddedResource Include="lib\MimeKit.dll" />
+    <EmbeddedResource Include="lib\Newtonsoft.Json.dll" />
+    <EmbeddedResource Include="lib\System.Data.SQLite.dll" />
+    <EmbeddedResource Include="lib\System.Security.Permissions.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Execute.HttpRequest.Core">
+      <HintPath>lib\Execute.HttpRequest.Core.dll</HintPath>
+      <CopyLocal>False</CopyLocal>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>lib\HtmlAgilityPack.dll</HintPath>
+      <CopyLocal>False</CopyLocal>
+    </Reference>
+    <Reference Include="MimeKit">
+      <HintPath>lib\MimeKit.dll</HintPath>
+      <CopyLocal>False</CopyLocal>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+      <CopyLocal>False</CopyLocal>
+    </Reference>
+    <Reference Include="System.Data.SQLite">
+      <HintPath>lib\System.Data.SQLite.dll</HintPath>
+      <CopyLocal>False</CopyLocal>
+    </Reference>
+    <Reference Include="System.Security.Permissions">
+      <HintPath>lib\System.Security.Permissions.dll</HintPath>
+      <CopyLocal>False</CopyLocal>
+    </Reference>
+  </ItemGroup>
+
+</Project>
