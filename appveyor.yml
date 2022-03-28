@@ -1,0 +1,26 @@
+version: 1.0.{build}
+image: Linux
+build_cloud: UBUNTU-PROD-DO
+before_build:
+- dotnet restore
+nuget:
+  project_feed: true
+build:
+  publish_nuget: true
+  include_nuget_references: true
+  verbosity: normal
+  project: beserver.nanick.org.sln
+deploy:
+  - provider: NuGet
+    server: https://nuget.pkg.github.com/nstevens1040/index.json
+    artifact: /.nupkg/
+    username: nstevens1040
+    api_key:
+      secure: f+MLRpFFOj9kyNxbFyIt2n5I/dR48bmJ6qXRB/ageJ/18o61FDhu61IZgwk9KfqD
+  - provider: GitHub
+    tag: v1.0.0
+    release: v1.0.0 stable
+    auth_token:
+      secure: ElzOGqa44YRqwJ9jKgjBNDbPEmxb1Mg3I+0TxsPQg8OdUSOA8T8DwkwoKofTXMQT
+    draft: false
+    prerelease: false
