@@ -4,8 +4,8 @@ image: Linux
 clone_folder: /home/appveyor/projects/beserver.nanick.org/
 build:
   verbosity: minimal
-on_success:
-- sh: >-
-    sudo printf "[Unit]\nDescription=WebServer\nAfter=network.target\nStartLimitIntervalSec=0\n[Service]\nType=simple\nRestart=always\nRestartSec=1\nUser=root\nExecStart=/home/appveyor/projects/beserver.nanick.org/beserver.nanick.org/beserver.nanick.org/bin/Debug/net5.0/beserver.nanick.org\n\n[Install]\nWantedBy=multi-user.target\n" > /etc/systemd/system/beserver.service
-    sudo systemctl enable beserver
-    sudo systemctl start beserver
+#on_success:
+#- sh: >-
+#    sudo printf "[Unit]\nDescription=WebServer\nAfter=network.target\nStartLimitIntervalSec=0\n[Service]\nType=simple\nRestart=always\nRestartSec=1\nUser=root\nExecStart=/home/appveyor/projects/beserver.nanick.org/beserver.nanick.org/beserver.nanick.org/bin/Debug/net5.0/beserver.nanick.org\n\n[Install]\nWantedBy=multi-user.target\n" > /etc/systemd/system/beserver.service
+#    sudo systemctl enable beserver
+#    sudo systemctl start beserver
