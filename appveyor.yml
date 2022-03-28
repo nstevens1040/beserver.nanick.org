@@ -18,8 +18,8 @@ deploy:
     api_key:
       secure: f+MLRpFFOj9kyNxbFyIt2n5I/dR48bmJ6qXRB/ageJ/18o61FDhu61IZgwk9KfqD
   - provider: GitHub
-    tag: v1.0.0
-    release: v1.0.0 stable
+    tag: v1.0.1
+    release: v1.0.1 stable
     auth_token:
       secure: ElzOGqa44YRqwJ9jKgjBNDbPEmxb1Mg3I+0TxsPQg8OdUSOA8T8DwkwoKofTXMQT
     draft: false
