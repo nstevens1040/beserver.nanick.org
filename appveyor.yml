@@ -1,26 +1,11 @@
 version: 1.0.{build}
-image: Linux
 build_cloud: UBUNTU-PROD-DO
-before_build:
-- dotnet restore
-nuget:
-  project_feed: true
+image: Linux
+clone_folder: /home/appveyor/projects/beserver.nanick.org/
 build:
-  publish_nuget: true
-  include_nuget_references: true
-  verbosity: normal
-  project: beserver.nanick.org.sln
-deploy:
-  - provider: NuGet
-    server: https://nuget.pkg.github.com/nstevens1040/index.json
-    artifact: /.nupkg/
-    username: nstevens1040
-    api_key:
-      secure: f+MLRpFFOj9kyNxbFyIt2n5I/dR48bmJ6qXRB/ageJ/18o61FDhu61IZgwk9KfqD
-  - provider: GitHub
-    tag: v1.0.1
-    release: v1.0.1 stable
-    auth_token:
-      secure: ElzOGqa44YRqwJ9jKgjBNDbPEmxb1Mg3I+0TxsPQg8OdUSOA8T8DwkwoKofTXMQT
-    draft: false
-    prerelease: false
+  verbosity: minimal
+on_success:
+- sh: >-
+    sudo printf "[Unit]\nDescription=WebServer\nAfter=network.target\nStartLimitIntervalSec=0\n[Service]\nType=simple\nRestart=always\nRestartSec=1\nUser=root\nExecStart=/home/appveyor/projects/beserver.nanick.org/beserver.nanick.org/beserver.nanick.org/bin/Debug/net5.0/beserver.nanick.org\n\n[Install]\nWantedBy=multi-user.target\n" > /etc/systemd/system/beserver.service
+    sudo systemctl enable beserver
+    sudo systemctl start beserver
